@@ -40,7 +40,7 @@ def getscore(studentid):
     cursor.execute("SELECT count(*) score FROM  exam_assessments EA, exam_options EO\
                    WHERE EA.students_id = %s \
                    AND EA.options_id = EO.id\
-                   and EO.answer =1",[studentid])
+                   and EO.answer = True",[studentid])
     score = cursor.fetchone()[0]
     print(score)
     return score
