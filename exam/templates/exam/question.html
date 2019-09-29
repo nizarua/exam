@@ -1,0 +1,44 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Python - Exam</title>
+    <link href="{% static 'exam/css/exam.css' %}" rel="stylesheet">
+   </head>
+<body>
+    <div class="header" >
+    		<div><img  src = "{% static 'exam/images/python.png' %}" /></div>		
+    		<div>Python Assessment</div>	
+    </div>
+    <div class="subheader" >
+		<div>{% if studentdetails %} {{ studentdetails }} {% endif %}</div>		
+	</div>
+	<div class="maincolumn">
+        {% if error_message %} <p id="error"> {{ error_message }} </p> {% endif %}
+        <p id="rcorners">
+            Question{{sequence}}. 
+            <br><br>
+            {{ examquestions.question|safe }}
+        </p> 
+        <form action="{% url 'exam:answer' examquestions.id%}" method="post">
+            {% csrf_token %} 
+            Options:
+            <br>               
+            {% for options in examquestions.examoptions_set.all %}
+                <input type="radio" name="option" id="options{{ forloop.counter }}" value="{{options.id}}">
+                <label for="options{{ forloop.counter }}">{{options.option|safe}}</label>
+                <br>
+            {% endfor %}
+            <input type="hidden" id="sequence" name="sequence" value="{{sequence}}">
+            <input type="submit" value="Answer">
+        </form>
+        </p>
+    </div>
+    <div class="footer">
+  		Powered by python, django and sqlite
+	</div>
+</body>
+</html>
+
+
+

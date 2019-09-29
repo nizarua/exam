@@ -1,0 +1,96 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Sep 27 20:24:42 2019
+
+@author: Ullampuzha.Nizar
+"""
+ body   {
+        background-color:linen; 
+        margin:10
+        }
+ .header {
+		/*background-color: DodgerBlue;*/
+		background-color: green;
+  		display: flex;
+		flex-direction: row;	
+		justify-content: center;	
+		}   
+	.header> div {
+  		/*background-color: #f1f1f1;
+  		margin: 10px;*/
+  		padding: 0px;
+	  	font-size: 60px;
+		text-align:center;
+		line-height:60px;
+		color:white;
+		}
+	.subheader {
+		/*background-color: DodgerBlue;*/
+		background-color: green;
+  		display: flex;
+		flex-direction: row;	
+		justify-content: flex-end;
+		}   
+	.subheader> div {
+  		/*background-color: #f1f1f1;
+  		margin: 10px;*/
+  		padding: 10px;
+	  	font-size: 25px;
+		text-align:center;
+		line-height:5px;
+		color:white;
+		}
+   .footer {
+		background-color: DodgerBlue;
+		text-align: center;
+  		line-height:40px;
+		color:white;
+		}
+	.maincolumn {
+		background-color: linen;
+  		float: left;
+  		padding: 10px;
+		width:100%;
+		font-size: 20px;
+		}
+	#rcorners {
+            border-radius: 15px 30px 5px 50px;
+            border: 2px solid #a44170;
+            padding: 20px;
+            width: 90%;
+            /*height: 80%;*/
+         }
+    #error {
+  		text-align:center;
+		line-height:0px;
+		color:red;
+		font-weight:bold;		
+		}
+    input[type=button], input[type=submit], input[type=reset] {
+  		background-color: #4CAF50;
+  		border: none;
+  		color: white;		
+		letter-spacing: 1px;
+  		padding: 10px 20px;
+  		text-decoration: none;
+  		margin: 4px 2px;
+  		cursor: pointer;
+		}
+	input[type=text],input[type=password] {
+  		width: 100%;
+		padding: 12px 20px;
+  		margin: 8px 0;
+  		box-sizing: border-box;
+  		border: 1px solid #555;
+  		outline: none;
+		}
+	input[type=text]:focus, input[type=password]:focus {
+  		border: 3px solid blue;
+		}
+	#loginbox{
+        border-radius: 5px ;
+        border: 2px solid #a44170;
+        padding: 20px;		
+        width: 25%;
+        /*height: 80%;*/
+     	}

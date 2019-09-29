@@ -1,0 +1,34 @@
+{% load staticfiles %}
+<html lang="en">
+<head>     
+    <title>Log In</title>
+<!-- Bootstrap core CSS -->
+    <link href="{% static 'exam/css/exam.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="header" >
+    		<div><img  src = "{% static 'exam/images/python.png' %}" /></div>		
+    		<div>Python Assessment</div>	
+    </div>
+    <div class="maincolumn">
+        <p id="error">{{message}}</p>      
+        <center>
+    		Please login for assessment
+    		<br/><br/>
+    		<form id="loginbox" name="form" action="{% url 'exam:dologin' %}" method="POST">
+        		{% csrf_token %}
+            	<label for="sapid">Username</label><br>
+      			<input type="text" id="sapid" name="sapid" placeholder="Username"><br>
+    			<label for="token">Login token</label><br>
+      			<input type="password" id="token" name="token" placeholder="Login Token"><br>
+    			<input type="submit" value="Login">
+            	
+        	</form>
+        </center>
+    </div>
+    <div class="footer">
+  		Powered by python, django and sqlite
+	</div>
+</body>
+</html> 

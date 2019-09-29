@@ -1,0 +1,35 @@
+{% load static %}
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <title>Python - Exam </title>
+    <link href="{% static 'exam/css/exam.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="header" >
+    		<div><img  src = "{% static 'exam/images/python.png' %}" /></div>		
+    		<div>Python Assessment</div>	
+    </div>
+    <div class="subheader" >
+        <div>{% if student %} {{ student.name }} ( {{ student.sapid }} ) {% endif %}</div>		
+    </div>
+    <div class="maincolumn">
+        <center><strong>Summary of the assessment</strong></center>
+        <p id="rcorners">
+            {% for assessment in examassessment %}
+                Q{{ forloop.counter }}.{{assessment.questions.question|safe}} 
+                <br><br>
+                <strong>Option Chosen:</strong> {{assessment.options.option|safe}} - 
+                <strong>{{assessment.options.answer}}</strong>    
+                <br><br>
+            {% endfor %}
+        </p>
+    </div>
+    <div class="footer">
+  		Powered by python, django and sqlite
+	</div>
+</body>
+</html>
+
+
+

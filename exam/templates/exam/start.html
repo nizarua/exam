@@ -1,0 +1,39 @@
+{% load static %}
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <title>Python - Exam </title>
+    <link href="{% static 'exam/css/exam.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="header" >
+    		<div><img  src = "{% static 'exam/images/python.png' %}" /></div>		
+    		<div>Python Assessment</div>	
+    </div>
+    <div class="subheader" >
+		<div>{% if student %} {{ student.name }} ( {{ student.sapid }} ) {% endif %}</div>		
+	</div>
+    <div class="maincolumn">
+    <p><center>
+        Hi,<strong> {{ student.name }} ( {{ student.sapid }} ) </strong>
+        <br><br>
+        Welcome to Python assessment.<br>
+        {% if student.exam_count > 0 %}
+            You have already taken up the assessment and your previous score is {{score}}.<br>
+        {% endif %}
+        You need to answer {{QUESTION_COUNT}} questions. Please click on Start to begin the test.<br>
+        Please do not use browser back buttons or refresh the screen.
+        <br>
+        <form action="{% url 'exam:start' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Start">
+        </form>        
+    </div>
+    <div class="footer">
+  		Powered by python, django and sqlite
+	</div>
+</body>
+</html>
+
+
+
